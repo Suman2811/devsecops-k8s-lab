@@ -6,24 +6,25 @@ stage — from code commit to runtime monitoring.
 
 ## Architecture
 
+```
 Code Push → GitHub Actions → Kubernetes → Runtime Monitoring
-│
-├── Gitleaks    (secrets scan)
-├── Semgrep     (SAST — code vulnerabilities)
-├── Docker build
-└── Trivy       (container image CVE scan)
-│
-kubectl deploy
-│
-┌──────────────────────┐
-│  Kubernetes Cluster   │
-│  ┌────────────────┐  │
-│  │  devsecops-app │  │
-│  └────────────────┘  │
-│  kube-bench (CIS)     │
-│  Falco (runtime)      │
-└──────────────────────┘
-
+              │
+              ├── Gitleaks    (secrets scan)
+              ├── Semgrep     (SAST — code vulnerabilities)
+              ├── Docker build
+              └── Trivy       (container image CVE scan)
+                                    │
+                              kubectl deploy
+                                    │
+                         ┌──────────────────────┐
+                         │  Kubernetes Cluster   │
+                         │  ┌────────────────┐  │
+                         │  │  devsecops-app │  │
+                         │  └────────────────┘  │
+                         │  kube-bench (CIS)     │
+                         │  Falco (runtime)      │
+                         └──────────────────────┘
+```
 ## Pipeline Stages
 
 | Stage | Tool | Result |
@@ -76,6 +77,8 @@ kubectl deploy
 | GitHub Actions | — | CI/CD pipeline |
 
 ## Project Structure
+
+```
 devsecops-k8s-lab/
 ├── .github/workflows/devsecops.yml   CI/CD pipeline
 ├── app/app.py                         Flask application
@@ -88,6 +91,9 @@ devsecops-k8s-lab/
 ├── falco/falco-alerts.txt             Captured runtime alerts
 ├── falco/findings-summary.md          Alert analysis
 └── report.md                          Full security assessment
+```
+
+
 ## How to Run
 
 ```bash
