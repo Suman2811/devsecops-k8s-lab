@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY app.py .
 
-RUN pip install flask
+RUN pip install --upgrade pip && pip install flask
 
 EXPOSE 5000
 
