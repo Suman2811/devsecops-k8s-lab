@@ -103,13 +103,4 @@ kubectl exec -it <pod-name> -- /bin/sh -c "cat /etc/shadow"
 kubectl logs -n falco -l app.kubernetes.io/name=falco -c falco --since=5m
 ```
 
-## CV Line
 
-Built a DevSecOps pipeline with SAST (Semgrep), secrets scanning (Gitleaks), and container scanning (Trivy) in GitHub Actions, deploying to a hardened Kubernetes cluster with CIS benchmark compliance (kube-bench) and Falco runtime detection — confirmed MITRE T1059 alert.
-
-## Certifications This Project Maps To
-
-- CKS (Certified Kubernetes Security Specialist) — 60% syllabus coverage
-- AWS Security Specialty — container security concepts
-- CompTIA Security+ — vulnerability management and threat detection
-EOF
