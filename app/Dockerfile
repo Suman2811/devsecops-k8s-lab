@@ -8,6 +8,6 @@ RUN pip install --upgrade pip && pip install flask
 
 EXPOSE 5000
 
-USER nobody
+USER 65534
 
 CMD ["python", "app.py"]
